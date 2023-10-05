@@ -1,0 +1,40 @@
+body {
+    overflow: hidden;
+}
+
+.gradient-custom {
+/* fallback for old browsers */
+background: #fccb90;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to bottom right, rgba(252, 203, 144, 1), rgba(213, 126, 235, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to bottom right, rgba(252, 203, 144, 1), rgba(213, 126, 235, 1))
+}
+
+.mask-custom {
+background: rgba(7,7,49,0.6);
+border-radius: 2em;
+backdrop-filter: blur(15px);
+border: 2px solid rgba(255, 255, 255, 0.05);
+background-clip: padding-box;
+box-shadow: 25px 25px 25px rgba(46, 54, 68, 0.03);
+}
+
+.error {
+    background-color: red
+}
+
+.success {
+    background-color: green
+}
+
+.info {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
