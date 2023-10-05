@@ -3,7 +3,6 @@ from hashlib import md5
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
 
 from chatapp.constants import DB_PATH
 from chatapp.ws_events import socketio
@@ -25,18 +24,8 @@ def create_app():
     db.init_app(app)
     socketio.init_app(app)
 
-    login_manager = LoginManager(app)
-
-    from chatapp.models import User
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
-
-    from chatapp.main import main
+    app.debug = True
+    from chatapp.web_app import main
     app.register_blueprint(main)
-
-    from chatapp.auth import auth
-    app.register_blueprint(auth)
 
     return app

@@ -1,5 +1,8 @@
 from flask_login import UserMixin
-from chatapp import db
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
+
+from main import db
 
 
 class User(db.Model, UserMixin):
@@ -7,12 +10,6 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(), unique=True)
     password = db.Column(db.String())
-    first_name = db.Column(db.String())
-    last_name = db.Column(db.String())
+    name = db.Column(db.String())
+    surname = db.Column(db.String())
     superuser = db.Column(db.Boolean, default=False, nullable=True)
-
-    def __init__(self, email, password, first_name, last_name):
-        self.email = email
-        self.password = password
-        self.first_name = first_name
-        self.last_name = last_name
