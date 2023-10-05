@@ -1,0 +1,1 @@
+DB_PATH = 'chat.db'
